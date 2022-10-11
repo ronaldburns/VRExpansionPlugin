@@ -149,7 +149,7 @@ TWeakObjectPtr<UAnimSequence> FHandSocketComponentDetails::SaveAnimationAsset(co
 			AnimController.SetFrameRate(FFrameRate(1.f / 4.f, 1));
 
 			TArray<FName> TrackNames;
-			UAnimDataModel* BaseDataModel = nullptr;
+			const IAnimationDataModel* BaseDataModel = nullptr;
 
 			if (BaseAnimation)
 			{
@@ -184,7 +184,7 @@ TWeakObjectPtr<UAnimSequence> FHandSocketComponentDetails::SaveAnimationAsset(co
 				AnimationObject->RetargetSource = HandSocketComponent->VisualizationMesh ? HandSocketComponent->VisualizationMesh->GetSkeleton()->GetRetargetSourceForMesh(HandSocketComponent->VisualizationMesh) : NAME_None;
 			}
 
-			UAnimDataModel* DataModel = AnimController.GetModel();
+			const IAnimationDataModel* DataModel = AnimController.GetModel();
 
 			/// SAVE POSE
 			if (BaseAnimation && DataModel && BaseDataModel)
